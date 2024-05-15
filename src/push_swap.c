@@ -45,6 +45,77 @@ void	push(t_stack *stack, int item)
 	stack->arr[++stack->top] = item;
 }
 
+void	swap(t_stack *stack)
+{
+	int	temp;
+
+	temp = stack->arr[0];
+	stack->arr[0] = stack->arr[1];
+	stack->arr[1] = temp;
+}
+
+static size_t	ft_intlcpy(int *dst, const int *src, size_t size)
+{
+	size_t	len;
+
+	len = 0;
+	if (size > 0)
+	{
+		while (*src && size > 1)
+		{
+			*dst++ = *src++;
+			size--;
+			len++;
+		}
+	}
+	while (*src)
+	{
+		src++;
+		len++;
+	}
+	return (len);
+}
+
+void	rota(t_stack *stack)
+{
+	int	*arr;
+
+	arr = (int *)malloc(stack->size * sizeof(int));
+	if (arr == NULL)
+		return ;
+	arr[stack->size- 1] = stack->arr[0];
+	ft_memmove(arr, &stack->arr[1], sizeof(int) * (stack->size - 1));
+	ft_intlcpy(stack->arr, arr, sizeof(int) * stack->size);
+	free(arr);
+}
+
+// TODO double check
+void	rrota(t_stack *stack)
+{
+	int	*arr;
+
+	arr = (int *)malloc(stack->size * sizeof(int));
+	if (arr == NULL)
+		return ;
+	arr[0] = stack->arr[stack->size - 1];
+	ft_memmove(arr + 1, stack->arr, sizeof(int) * (stack->size - 1));
+	ft_intlcpy(stack->arr, arr, sizeof(int) * stack->size);	
+	free(arr);
+}
+
+void	putstack(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack->arr[i])
+	{
+		ft_putnbr_fd(stack->arr[i], 1);
+		ft_putchar_fd('\n', 1);
+		i++;
+	}
+}
+
 int	main(int argc, char *argv[])
 {
 	int	i;
@@ -61,11 +132,10 @@ int	main(int argc, char *argv[])
 			push(s, ft_atoi(argv[i]));
 			i++;
 		}
-		while (*(s->arr))
-		{
-			ft_putnbr_fd(*(s->arr), 1);
-			s->arr++;
-		}
-		// sorting algorithm
+		ft_putendl_fd("Before", 1);
+		putstack(s);
+		ft_putendl_fd("After", 1);
+		rrota(s);
+		putstack(s);
 	}
 }
