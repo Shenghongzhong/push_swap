@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:57:27 by szhong            #+#    #+#             */
-/*   Updated: 2024/05/16 15:45:38 by szhong           ###   ########.fr       */
+/*   Updated: 2024/05/20 15:15:06 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -21,6 +21,20 @@ void	push(t_stack *stack, int item)
 	stack->arr[++stack->top] = item;
 }
 
+int	pop(t_stack *stack)
+{
+	if (is_empty(stack))
+		return (INT_MIN);
+	stack->top -= 1;
+	return (stack->arr[stack->top]);
+}
+
+int	peek(t_stack *stack)
+{
+	if (is_empty(stack))
+		return (INT_MIN);
+	return (stack->arr[stack->top]);
+}
 void	swap(t_stack *stack)
 {
 	int	temp;
