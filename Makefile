@@ -6,17 +6,20 @@
 #    By: szhong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 14:29:39 by szhong            #+#    #+#              #
-#    Updated: 2024/05/20 16:44:48 by szhong           ###   ########.fr        #
+#    Updated: 2024/06/04 18:55:48 by szhong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:=	push_swap
-CC	:=	cc -Wall -Werror -Wextra -g
+CC	:=	cc -Wall -Werror -Wextra -g -fsanitize=leak
 SRC_DIR	:=	./src
 SRCS	:=	\
 		push_swap.c \
 		utils/operation.c \
-		utils/stack.c
+		utils/stack.c \
+		utils/operations_dblst.c \
+		utils/stack_dblst.c \
+		utils/stack_swap.c
 
 LIBFT_PATH	:=	./libft
 INCLUDE		=	-I ./inc -I $(LIBFT_PATH)/inc

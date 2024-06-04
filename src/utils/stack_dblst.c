@@ -6,11 +6,26 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 09:54:39 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/03 17:30:53 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/04 15:32:52 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
+#include "libft.h"
 #include <stdlib.h>
+
+void	dblst_stack_init(t_stack_node **stack, int size, char *argv[])
+{
+	int	i;
+	t_stack_node	*tmp;
+
+	i = 1;
+	while (i < size)
+	{
+		tmp = ft_dblst_new(ft_atoi(argv[i]));
+		ft_dblstadd_front(stack, tmp);
+		i++;
+	}
+}
 
 /**
  * @breif Create and Initialise a new node for an intger.

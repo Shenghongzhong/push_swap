@@ -6,17 +6,17 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:31:09 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/04 12:35:49 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/04 15:45:47 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	is_neighbour(t_stack_node *a, t_stack_node *b)
+static int	is_neighbour(t_stack_node *a, t_stack_node *b)
 {
 	return ((a->next == b && b->prev == a) || (a->prev == b && b->next == a));
 }
 
-void	edge_pointer(t_stack_node *a)
+static void	edge_pointer(t_stack_node *a)
 {
 	if (a->prev != NULL)
 		a->prev->next = a;
@@ -24,7 +24,7 @@ void	edge_pointer(t_stack_node *a)
 		a->next->prev = a;
 }
 
-void	swapper_init(t_stack_node **s, t_stack_node **a, t_stack_node **b)
+static void	swapper_init(t_stack_node **s, t_stack_node **a, t_stack_node **b)
 {
 	s[0] = (*a)->prev;
 	s[1] = (*b)->prev;
@@ -32,7 +32,7 @@ void	swapper_init(t_stack_node **s, t_stack_node **a, t_stack_node **b)
 	s[3] = (*b)->next;
 }
 
-void	matrix_swap(t_stack_node **s, t_stack_node **a, t_stack_node **b)
+static void	matrix_swap(t_stack_node **s, t_stack_node **a, t_stack_node **b)
 {
 	if (is_neighbour(*a, *b))
 	{
