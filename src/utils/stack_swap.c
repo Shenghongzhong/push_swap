@@ -6,14 +6,14 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:31:09 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/03 18:40:09 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/04 12:35:49 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
 int	is_neighbour(t_stack_node *a, t_stack_node *b)
 {
-	return ((a->next == b && b->prev == a) || ( a->prev == b && b->next == a));
+	return ((a->next == b && b->prev == a) || (a->prev == b && b->next == a));
 }
 
 void	edge_pointer(t_stack_node *a)
@@ -68,6 +68,8 @@ void	dblst_swap(t_stack_node *a, t_stack_node *b)
 	edge_pointer(a);
 	edge_pointer(b);
 }
+
+/*
 #include <stdio.h>
 void	print(t_stack_node *node)
 {
@@ -109,4 +111,16 @@ int	main(void)
 	dblst_swap(n2, n1);
 	print(n1);
 
-}
+	printf("[1] <-> [3]: ");
+	dblst_swap(n1, n3);
+	print(n2);
+
+	printf("[3] <-> [1]: ");
+	dblst_swap(n1, n3);
+	print(n2);
+
+	printf("[3] <-> [1]: ");
+	dblst_swap(n3, n1);
+	print(n2);
+
+}*/
