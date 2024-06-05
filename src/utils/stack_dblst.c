@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 09:54:39 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/04 15:32:52 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/05 13:36:31 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -100,6 +100,25 @@ void	ft_dblst_delnode(t_stack_node **top, t_stack_node *del)
 	return ;
 }
 
+void	ft_dblstadd_back(t_stack_node **stack, t_stack_node *new_head)
+{
+	t_stack_node	*old_head;
+
+	if (!new_head || !stack)
+		return ;
+	if (*stack == NULL)
+	{
+		*stack = new_head;
+		return ;
+	}
+	old_head = *stack;
+	while (old_head->next != NULL)
+		old_head = old_head->next;
+	old_head->next = new_head;
+	new_head->prev = old_head;
+	new_head->next = NULL;
+	return ;
+}
 /**
  * @breif Delete one node from the linked list.
  *

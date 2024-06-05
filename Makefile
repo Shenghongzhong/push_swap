@@ -6,12 +6,12 @@
 #    By: szhong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 14:29:39 by szhong            #+#    #+#              #
-#    Updated: 2024/06/04 18:55:48 by szhong           ###   ########.fr        #
+#    Updated: 2024/06/05 16:11:10 by szhong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:=	push_swap
-CC	:=	cc -Wall -Werror -Wextra -g -fsanitize=leak
+CC	:=	cc -Wall -Werror -Wextra -pedantic -g #-fsanitize=leak
 SRC_DIR	:=	./src
 SRCS	:=	\
 		push_swap.c \
