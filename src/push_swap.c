@@ -10,15 +10,15 @@
 
 void	print(t_stack_node *node)
 {
-	if (!node)
-		ft_putendl_fd("node is unitilised", 1);
+	if (check_stack(&node) == -1)
+		return ;
 	while (node->prev != NULL)
 		node = node->prev;
-	ft_printf("%d\n", node->data);
+	ft_printf("%d\n", *(node->data));
 	while (node->next != NULL)
 	{
 		node = node->next;
-		ft_printf("%d\n", node->data);
+		ft_printf("%d\n", *(node->data));
 	}
 	ft_printf("\n");
 }
@@ -34,13 +34,13 @@ int	main(int argc, char *argv[])
 		return (1);
 	else
 	{
-		dblst_stack_init(&a, argc, argv);
+		dblst_stack_init(&a, &b, argc, argv);
 		ft_printf("-------before push-------\n");
 		ft_printf("a\n");
 		print(a);
 		ft_printf("b\n");
-		sasb( &b, "pb");
-		sasb( &b, "pb");
+		sasb( &b, "sb");
+		sasb( &b, "sb");
 		print(b);
 		ft_printf("----------after push-------\n");
 		ft_printf("a\n");

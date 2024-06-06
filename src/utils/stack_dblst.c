@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 09:54:39 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/06 13:39:42 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/06 14:05:00 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -26,7 +26,14 @@ void	dblst_stack_init(t_stack_node **a, t_stack_node **b, int size, char *argv[]
 		i++;
 	}
 	if (*b == NULL)
-		*b = ft_dblst_new((int) NULL);
+	{
+		*b = (t_stack_node *)malloc(sizeof(t_stack_node));
+		if (*b == NULL)
+			return ;
+		(*b)->next = NULL;
+		(*b)->data = NULL;
+		(*b)->prev = NULL;
+	}	
 }
 
 /**
@@ -40,36 +47,41 @@ void	dblst_stack_init(t_stack_node **a, t_stack_node **b, int size, char *argv[]
 t_stack_node	*ft_dblst_new(int data)
 {
 	t_stack_node	*db_lst;
+	int	*ptr_data;
 
 	db_lst = (t_stack_node *)malloc(sizeof(t_stack_node));
 	if (db_lst == NULL)
 		return (NULL);
+	db_lst->data = (int *)malloc(sizeof(int));
+	ptr_data = db_lst->data;
+	if (ptr_data == NULL)
+		return (NULL);
+	*(ptr_data) = data;
 	db_lst->next = NULL;
-	db_lst->data = data;
 	db_lst->prev = NULL;
 	return (db_lst);
 }
 
 /**
- * @breif Add the node to the front of existing nodes.
- *
- * The function inserts a node before the head node.
- *
- * @param stack a double pointer to the linked list for modifying the pointer
- * @param new a node to insert before the head node
- */
+ *  * @breif Add the node to the front of existing nodes.
+ *   *
+ *    * The function inserts a node before the head node.
+ *     *
+ *      * @param stack a double pointer to the linked list for modifying the pointer
+ *       * @param new a node to insert before the head node
+ *        */
 void    ft_dblstadd_front(t_stack_node **stack, t_stack_node *new)
 {
-        if (!new)
-                return ;
-        if (!stack || !*stack)
-        {
-                *stack = new;
-                return ;
-        }
-        new->next = *stack;
-        (*stack)->prev = new;
-        *stack = new;
+	if (!new)
+		return ;
+	if (!stack || !*stack)
+	{
+		*stack = new;
+		return ;
+	}
+	new->next = *stack;
+	(*stack)->prev = new;
+	*stack = new;
 }
 
 /**
