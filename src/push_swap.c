@@ -18,7 +18,8 @@ void	print(t_stack_node *node)
 	while (node->next != NULL)
 	{
 		node = node->next;
-		ft_printf("%d\n", *(node->data));
+		if (node->data != NULL)
+			ft_printf("%d\n", *(node->data));
 	}
 	ft_printf("\n");
 }
@@ -41,7 +42,8 @@ int	main(int argc, char *argv[])
 		ft_printf("b\n");
 		sasb( &b, "sb");
 		sasb( &b, "sb");
-		print(b);
+		sasb(&a, "sa");
+		print(a);
 		ft_printf("----------after push-------\n");
 		ft_printf("a\n");
 		print(a);
@@ -50,6 +52,7 @@ int	main(int argc, char *argv[])
 		ft_printf("a\n");
 		print(a);
 		ft_printf("b\n");
+		papb(&a, &b, "pb");
 		print(b);
 		deallocate(&a);
 		deallocate(&b);
