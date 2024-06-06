@@ -10,6 +10,8 @@
 
 void	print(t_stack_node *node)
 {
+	if (!node)
+		ft_putendl_fd("node is unitilised", 1);
 	while (node->prev != NULL)
 		node = node->prev;
 	ft_printf("%d\n", node->data);
@@ -19,53 +21,6 @@ void	print(t_stack_node *node)
 		ft_printf("%d\n", node->data);
 	}
 	ft_printf("\n");
-}
-
-void	papb(t_stack_node **src, t_stack_node **dst, char *papb)
-{
-	dblst_push(src, dst);
-	ft_putendl_fd(papb, 1);
-}
-
-void	sasb(t_stack_node **stack, char *sasb)
-{
-	dblst_swap(*stack, (*stack)->next);
-	ft_putendl_fd(sasb, 1);
-}
-
-void	rarb(t_stack_node **stack, char *rarb)
-{
-	dblst_rota(stack);
-	ft_putendl_fd(rarb, 1);
-}
-
-void	ss(t_stack_node **a, t_stack_node **b)
-{
-	sasb(a, "sa");
-	sasb(b, "sb");
-}
-
-void	rr(t_stack_node **a, t_stack_node **b)
-{
-	rarb(a, "ra");
-	rarb(b, "rb");
-}
-
-void	deallocate(t_stack_node **stack)
-{
-	t_stack_node	*curr;
-
-	if (*stack == NULL)
-		return ;
-	curr = *stack;
-	while (curr->next != NULL)
-	{
-		curr = curr->next;
-		free(curr->prev);
-	}
-	free(curr);
-	curr = NULL;
-	*stack = NULL;
 }
 
 int	main(int argc, char *argv[])
@@ -84,13 +39,17 @@ int	main(int argc, char *argv[])
 		ft_printf("a\n");
 		print(a);
 		ft_printf("b\n");
-		papb(&a, &b, "pb");
+		sasb( &b, "pb");
+		sasb( &b, "pb");
 		print(b);
 		ft_printf("----------after push-------\n");
 		ft_printf("a\n");
 		print(a);
+		ft_printf("--------rrota----------\n");
+		rrr(&a, &b);
+		ft_printf("a\n");
+		print(a);
 		ft_printf("b\n");
-		papb(&a, &b, "pb");
 		print(b);
 		deallocate(&a);
 		deallocate(&b);

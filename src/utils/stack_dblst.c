@@ -6,14 +6,14 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 09:54:39 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/05 13:36:31 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/06 13:39:42 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 #include "libft.h"
 #include <stdlib.h>
 
-void	dblst_stack_init(t_stack_node **stack, int size, char *argv[])
+void	dblst_stack_init(t_stack_node **a, t_stack_node **b, int size, char *argv[])
 {
 	int	i;
 	t_stack_node	*tmp;
@@ -22,9 +22,11 @@ void	dblst_stack_init(t_stack_node **stack, int size, char *argv[])
 	while (i < size)
 	{
 		tmp = ft_dblst_new(ft_atoi(argv[i]));
-		ft_dblstadd_front(stack, tmp);
+		ft_dblstadd_front(a, tmp);
 		i++;
 	}
+	if (*b == NULL)
+		*b = ft_dblst_new((int) NULL);
 }
 
 /**

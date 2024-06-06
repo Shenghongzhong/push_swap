@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:31:09 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/04 15:45:47 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/06 13:34:08 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -52,6 +52,8 @@ static void	matrix_swap(t_stack_node **s, t_stack_node **a, t_stack_node **b)
 
 void	dblst_swap(t_stack_node *a, t_stack_node *b)
 {
+	if (!a || !b)
+		return ;
 	t_stack_node	*swapper_vector[4];
 	t_stack_node	*tmp;
 
