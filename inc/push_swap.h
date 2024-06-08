@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:52:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/05 13:49:50 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/08 13:59:35 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -17,6 +17,7 @@
 typedef struct s_dblst
 {
 	int	data;
+	int	rank;
 	struct s_dblst	*next;
 	struct s_dblst	*prev;
 }		t_stack_node;
@@ -38,7 +39,10 @@ void	dblst_stack_init(t_stack_node **Stack, int size, char *argv[]);
 void	dblst_swap(t_stack_node *a, t_stack_node *n);
 void	dblst_rota(t_stack_node **stack);
 void	dblst_push(t_stack_node **a, t_stack_node **b);
+void	deallocate(t_stack_node *[]);
 
+void	rank_stack(t_stack_node **stack, int size);
+int	*rank_arr(int **arr, int n);
 void	stack_init(t_stack **stack, int size, char *argv[]);
 int	is_full(t_stack []);
 void	push(t_stack [], int );

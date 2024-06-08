@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:48:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/06 13:30:56 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/08 13:54:21 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -64,6 +64,8 @@ void	deallocate(t_stack_node **stack)
 	if (*stack == NULL)
 		return ;
 	curr = *stack;
+	while (curr->prev != NULL)
+		curr = curr->prev;
 	while (curr->next != NULL)
 	{
 		curr = curr->next;

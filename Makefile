@@ -6,7 +6,7 @@
 #    By: szhong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 14:29:39 by szhong            #+#    #+#              #
-#    Updated: 2024/06/05 16:11:10 by szhong           ###   ########.fr        #
+#    Updated: 2024/06/08 13:56:54 by szhong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRCS	:=	\
 		utils/stack.c \
 		utils/operations_dblst.c \
 		utils/stack_dblst.c \
-		utils/stack_swap.c
+		utils/stack_swap.c \
+		utils/rank_stack.c
 
 LIBFT_PATH	:=	./libft
 INCLUDE		=	-I ./inc -I $(LIBFT_PATH)/inc

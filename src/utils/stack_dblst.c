@@ -6,14 +6,14 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 09:54:39 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/06 13:39:42 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/07 20:28:57 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 #include "libft.h"
 #include <stdlib.h>
 
-void	dblst_stack_init(t_stack_node **a, t_stack_node **b, int size, char *argv[])
+void	dblst_stack_init(t_stack_node **a, int size, char *argv[])
 {
 	int	i;
 	t_stack_node	*tmp;
@@ -25,8 +25,6 @@ void	dblst_stack_init(t_stack_node **a, t_stack_node **b, int size, char *argv[]
 		ft_dblstadd_front(a, tmp);
 		i++;
 	}
-	if (*b == NULL)
-		*b = ft_dblst_new((int) NULL);
 }
 
 /**
@@ -47,6 +45,7 @@ t_stack_node	*ft_dblst_new(int data)
 	db_lst->next = NULL;
 	db_lst->data = data;
 	db_lst->prev = NULL;
+	db_lst->rank = -1;
 	return (db_lst);
 }
 

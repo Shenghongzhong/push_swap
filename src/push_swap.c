@@ -26,35 +26,27 @@ void	print(t_stack_node *node)
 int	main(int argc, char *argv[])
 {
 	t_stack_node	*a;
-	t_stack_node	*b;
+	//t_stack_node	*b;
 
 	a = NULL;
-	b = NULL;
+//	b = NULL;
 	if (argc < 2)
 		return (1);
 	else
 	{
 		dblst_stack_init(&a, argc, argv);
-		ft_printf("-------before push-------\n");
-		ft_printf("a\n");
-		print(a);
-		ft_printf("b\n");
-		sasb( &b, "pb");
-		sasb( &b, "pb");
-		print(b);
-		ft_printf("----------after push-------\n");
-		ft_printf("a\n");
-		print(a);
-		ft_printf("--------rrota----------\n");
-		rrr(&a, &b);
-		ft_printf("a\n");
-		print(a);
-		ft_printf("b\n");
-		print(b);
+
+		rank_stack(&a, argc);
+		while (a != NULL)
+		{
+			ft_printf("rank [%d] - number %d\n", a->rank, a->data);
+			a = a->next;
+		}
 		deallocate(&a);
-		deallocate(&b);
+//		deallocate(&b);
 	}
 }
+
 /*
 int	main(int argc, char *argv[])
 {
