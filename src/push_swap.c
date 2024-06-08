@@ -32,36 +32,16 @@ int	main(int argc, char *argv[])
 //	b = NULL;
 	if (argc < 2)
 		return (1);
-	else
+	
+	dblst_stack_init(&a, argc, argv);
+	if (argc <= 4)
 	{
-		dblst_stack_init(&a, argc, argv);
+		print(a);
+		ft_printf("befre\n");
+		sort_three(&a);
+		ft_printf("a\n");
+		print(a);
 
-		rank_stack(&a, argc);
-		while (a != NULL)
-		{
-			ft_printf("rank [%d] - number %d\n", a->rank, a->data);
-			a = a->next;
-		}
-		deallocate(&a);
-//		deallocate(&b);
-	}
+	}	
+	deallocate(&a);
 }
-
-/*
-int	main(int argc, char *argv[])
-{
-	t_stack	*a;
-
-	a = NULL;
-	if (argc < 2)
-		return (0);
-	else
-	{
-		stack_init(&a, argc, argv);
-		ft_putendl_fd("Before", 1);
-		putstack(a);
-		ft_putendl_fd("After", 1);
-		pop(a);
-		putstack(a);
-	}
-}*/

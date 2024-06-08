@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:48:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/08 13:54:21 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/08 15:10:36 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -36,6 +36,8 @@ void	dblst_rota(t_stack_node **stack)
 
 	if (!(*stack))
 		return ;
+	while ((*stack)->prev != NULL)
+		(*stack) = (*stack)->prev;
 	dup = ft_dblst_new((*stack)->data);
 	ft_dblstadd_back(stack, dup);
 	ft_dblst_delnode(stack, stack[0]);
@@ -48,12 +50,14 @@ void	dblst_rrota(t_stack_node **stack)
 
 	if (!(*stack))
 		return ;
+	while ((*stack)->prev != NULL)
+		(*stack) = (*stack)->prev;
 	node = *stack;
 	while (node->next != NULL)
 		node = node->next;
-	node->prev->next = NULL;
 	node->next = *stack;
 	(*stack)->prev = node;
+	node->prev->next = NULL;
 	node->prev = NULL;
 }
 

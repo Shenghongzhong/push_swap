@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 09:54:39 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/07 20:28:57 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/08 14:09:07 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -25,6 +25,7 @@ void	dblst_stack_init(t_stack_node **a, int size, char *argv[])
 		ft_dblstadd_front(a, tmp);
 		i++;
 	}
+	rank_stack(a, size);
 }
 
 /**
