@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:52:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/08 16:01:35 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/10 09:18:39 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -43,7 +43,7 @@ void	dblst_push(t_stack_node **a, t_stack_node **b);
 void	deallocate(t_stack_node *[]);
 
 void	rank_stack(t_stack_node **stack, int size);
-int	*rank_arr(int **arr, int n);
+int	*rank_arr(int *arr, int n);
 
 void	papb(t_stack_node **src, t_stack_node **dst, char *papb);
 void	sasb(t_stack_node **stack, char *sasb);

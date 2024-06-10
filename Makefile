@@ -6,7 +6,7 @@
 #    By: szhong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 14:29:39 by szhong            #+#    #+#              #
-#    Updated: 2024/06/08 16:00:46 by szhong           ###   ########.fr        #
+#    Updated: 2024/06/10 10:35:27 by szhong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,6 @@ re:	fclean all
 N	:= 10
 test:
 	@echo "Running tests..."
-	@./push_swap $(shell  shuf -i 1-5000 -n $(N))
+	@./push_swap $(shell  shuf -i 1-5000 -n $(N)) | tee output.txt
 
 .PHONY: all clean fclean re

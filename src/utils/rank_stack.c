@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:39:01 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/08 14:02:19 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/10 09:27:52 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -30,7 +30,7 @@ void	rank_stack(t_stack_node **stack, int size)
 		node = node->next;
 	}
 	i = 0;
-	ranked_arr = rank_arr(&arr, size - 1);
+	ranked_arr = rank_arr(arr, size - 1);
 	node = *stack;
 	while (node != NULL && i < size - 1)
 	{
@@ -38,11 +38,10 @@ void	rank_stack(t_stack_node **stack, int size)
 		node = node->next;
 		i++;
 	}
-	ranked_arr = NULL;
-	free(arr);
+	free(ranked_arr);
 }
 
-int	*rank_arr(int **arr, int n) 
+int	*rank_arr(int *arr, int n) 
 { 
 	int *arr_to_sort;
 	int i;
@@ -59,12 +58,13 @@ int	*rank_arr(int **arr, int n)
 		j = 0;
 		while (j < n)
 		{
-			if ((*arr)[i] >= (*arr)[j])
+			if (arr[i] >= arr[j])
 				k += 1;
 			++j;
 		}
 		arr_to_sort[i] = k;
 		i++;
 	}
+	free(arr);
 	return (arr_to_sort);
 }
