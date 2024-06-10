@@ -42,28 +42,84 @@ int	main(int argc, char *argv[])
 		sort_three(&a);
 	else if (argc <= 6)
 	{
-		print(a, "before");
-		papb(&a, &b, "pb");
-		papb(&a, &b, "pb");
-		sort_three(&a);
-		print(a, "sort");
-		print(b, "b");
-		papb(&b, &a, "pa");
+		if (ft_dblst_size(a) == 5)
+		{
+			print(a, "before \n a");
+			papb(&a, &b, "pb");
+			papb(&a, &b, "pb");
+			sort_three(&a);
+			if (a->data > b->data)
+				papb(&b, &a, "pa");
+			else if (tail_node(a)->data < b->data)
+			{
+				papb(&b, &a, "pa");
+				rarb(&a, "ra");
+			}
+			else if(a->data > b->data \
+					&& b->data < a->next->data)
+			{
+				papb(&b, &a, "pa");
+				sasb(&a, "sa");
+			}
+			else if (tail_node(a)->data > b->data \
+					&& b->data > a->next->data)
+			{
+				rrota_ab(&a, "rra");
+				papb(&b, &a, "pa");
+				if (b->data < a->data \
+						&& b->data > tail_node(a)->data)
+				{
+					papb(&b, &a, "pa");
+					rrota_ab(&a, "rra");
+					rrota_ab(&a, "rra");
+					print(a,"complete a ");
+					return (0);
+				}
+				else
+				{
+					rarb(&a, "ra");
+					rarb(&a, "ra");
+				}
+			}
+			else if (a->data < b->data && a->next->data > b->data)
+			{
+				papb(&b, &a, "pa");
+				sasb(&a,"sa");
+			}
+
+			// for the last one in stack b
+			ft_printf("last one\n");
+			if (a->data > b->data)
+				papb(&b, &a, "pa");
+			else if (tail_node(a)->data < b->data)
+			{
+				papb(&b, &a, "pa");
+				rarb(&a, "ra");
+			}
+			else if (b->data > a->data && b->data < a->next->data)
+			{
+				papb(&b, &a, "pa");
+				sasb(&a, "sa");
+			}
+			else if (b->data > a->next->data && b->data < tail_node(a)->prev->data)
+			{
+				rarb(&a, "ra");
+				rarb(&a, "ra");
+				papb(&b, &a, "pa");
+				rrota_ab(&a, "rra");
+				rrota_ab(&a, "rra");
+			}
+			else if (b->data > tail_node(a)->prev->data \
+					&& b->data <tail_node(a)->data)
+			{	
+				rrota_ab(&a, "rra");
+				papb(&b, &a, "pa");
+				rarb(&a, "ra");
+				rarb(&a, "ra");
+			}
+		}
 		print(a, "a");
-//		rarb(&a, "ra");
-//		print(a, "a");
-	//	papb(&b, &a, "pa");
-//		print(a, "a");
-	/*	papb(&a, &b, "pb");
-		papb(&a, &b, "pb");
 		print(b, "b");
-		sasb(&a, "sa");
-		rarb(&a, "ra");
-		papb(&b, &a, "pa");
-		rarb(&a, "ra");
-		papb(&b, &a, "pa");
-		print(a, "a");
-		print(b, "b");*/
 	}
 	deallocate(&a);
 	deallocate(&b);

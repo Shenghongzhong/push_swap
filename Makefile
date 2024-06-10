@@ -6,7 +6,7 @@
 #    By: szhong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 14:29:39 by szhong            #+#    #+#              #
-#    Updated: 2024/06/10 10:35:27 by szhong           ###   ########.fr        #
+#    Updated: 2024/06/10 18:57:29 by szhong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRCS	:=	\
 		utils/rank_stack.c \
 		utils/psop_uniq.c \
 		utils/psop_match.c \
-		utils/sort_three.c 
+		utils/sort_three.c \
+		utils/stack_utils.c 
 
 LIBFT_PATH	:=	./libft
 INCLUDE		=	-I ./inc -I $(LIBFT_PATH)/inc

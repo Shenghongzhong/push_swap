@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:52:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/10 09:18:39 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/10 17:20:05 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -35,6 +35,8 @@ t_stack_node	*ft_dblst_new(int data);
 void	ft_dblstadd_front(t_stack_node **stack, t_stack_node *new_node);
 void	ft_dblstadd_back(t_stack_node *[], t_stack_node *);
 void	ft_dblst_delnode(t_stack_node *[], t_stack_node *);
+int	ft_dblst_size(t_stack_node *dblst);
+
 void	dblst_stack_init(t_stack_node **Stack, int size, char *argv[]);
 void	dblst_swap(t_stack_node *a, t_stack_node *n);
 void	dblst_rota(t_stack_node **stack);
@@ -45,6 +47,7 @@ void	deallocate(t_stack_node *[]);
 void	rank_stack(t_stack_node **stack, int size);
 int	*rank_arr(int *arr, int n);
 
+t_stack_node	*tail_node(t_stack_node	*stack);
 void	papb(t_stack_node **src, t_stack_node **dst, char *papb);
 void	sasb(t_stack_node **stack, char *sasb);
 void	rarb(t_stack_node **stack, char *rarb);

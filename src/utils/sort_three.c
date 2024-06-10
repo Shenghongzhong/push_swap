@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 15:57:40 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/08 16:00:52 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/10 18:37:15 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -38,4 +38,6 @@ void	sort_three(t_stack_node **stack)
 		rrota_ab(&a, "rra");
 		rrota_ab(&a, "rra");
 	}
+	while ((*stack)->prev != NULL)
+		*stack = (*stack)->prev;
 }
