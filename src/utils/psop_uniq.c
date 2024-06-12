@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:03:10 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/10 18:38:01 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/12 12:16:34 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -36,6 +36,9 @@ void	sasb(t_stack_node **stack, char *sasb)
 	head = *stack;
 	dblst_swap(head, head->next);
 	ft_putendl_fd(sasb, 1);
+	if ((*stack) != NULL)
+		while ((*stack)->prev != NULL)
+			*stack = (*stack)->prev;
 }
 
 void	rarb(t_stack_node **stack, char *rarb)

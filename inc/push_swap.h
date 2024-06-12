@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:52:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/10 17:20:05 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/12 11:54:19 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -29,6 +29,7 @@ typedef struct s_stack
 	int	*arr;
 }	t_stack;
 
+void	print(t_stack_node *node, char *signals);
 t_stack	*create_stack(unsigned);
 
 t_stack_node	*ft_dblst_new(int data);
@@ -38,7 +39,7 @@ void	ft_dblst_delnode(t_stack_node *[], t_stack_node *);
 int	ft_dblst_size(t_stack_node *dblst);
 
 void	dblst_stack_init(t_stack_node **Stack, int size, char *argv[]);
-void	dblst_swap(t_stack_node *a, t_stack_node *n);
+void	dblst_swap(t_stack_node *a, t_stack_node *b);
 void	dblst_rota(t_stack_node **stack);
 void	dblst_rrota(t_stack_node **stack);
 void	dblst_push(t_stack_node **a, t_stack_node **b);
@@ -57,7 +58,8 @@ void	rrr(t_stack_node **a, t_stack_node **b);
 void	rr(t_stack_node **a, t_stack_node **b);
 
 void	sort_three(t_stack_node **stack);
-
+void	sort_five(t_stack_node **a, t_stack_node **b);
+int	handle_edge(t_stack_node **a, t_stack_node **b, int size);
 // array method
 void	stack_init(t_stack **stack, int size, char *argv[]);
 int	is_full(t_stack []);

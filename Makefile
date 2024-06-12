@@ -6,7 +6,7 @@
 #    By: szhong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 14:29:39 by szhong            #+#    #+#              #
-#    Updated: 2024/06/10 18:57:29 by szhong           ###   ########.fr        #
+#    Updated: 2024/06/11 16:04:07 by szhong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS	:=	\
 		utils/psop_uniq.c \
 		utils/psop_match.c \
 		utils/sort_three.c \
-		utils/stack_utils.c 
+		utils/stack_utils.c \
+		utils/sort_five.c
 
 LIBFT_PATH	:=	./libft
 INCLUDE		=	-I ./inc -I $(LIBFT_PATH)/inc
@@ -52,6 +53,6 @@ re:	fclean all
 N	:= 10
 test:
 	@echo "Running tests..."
-	@./push_swap $(shell  shuf -i 1-5000 -n $(N)) | tee output.txt
+	@./push_swap $(shell shuf -i 1-5000 -n $(N))
 
 .PHONY: all clean fclean re
