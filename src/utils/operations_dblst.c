@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:48:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/10 13:07:04 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/12 18:19:51 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -28,6 +28,7 @@ void	dblst_push(t_stack_node **src, t_stack_node **dst)
 	t_stack_node	*tmp;
 
 	tmp = ft_dblst_new((*src)->data);
+	tmp->rank = (*src)->rank;
 	if (*dst == NULL)
 		*dst = tmp;
 	else

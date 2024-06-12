@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:52:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/12 11:54:19 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/12 20:49:30 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -48,7 +48,10 @@ void	deallocate(t_stack_node *[]);
 void	rank_stack(t_stack_node **stack, int size);
 int	*rank_arr(int *arr, int n);
 
+void	comp_first_node(t_stack_node **a, t_stack_node **b);
+void	comp_second_node(t_stack_node **a, t_stack_node **b);
 t_stack_node	*tail_node(t_stack_node	*stack);
+
 void	papb(t_stack_node **src, t_stack_node **dst, char *papb);
 void	sasb(t_stack_node **stack, char *sasb);
 void	rarb(t_stack_node **stack, char *rarb);
@@ -60,6 +63,11 @@ void	rr(t_stack_node **a, t_stack_node **b);
 void	sort_three(t_stack_node **stack);
 void	sort_five(t_stack_node **a, t_stack_node **b);
 int	handle_edge(t_stack_node **a, t_stack_node **b, int size);
+void	case_one(t_stack_node **b, t_stack_node **a);
+void	case_two(t_stack_node **b, t_stack_node **a);
+void	case_three(t_stack_node **b, t_stack_node **a);
+void	case_four(t_stack_node **b, t_stack_node **a);
+void	case_five(t_stack_node **b, t_stack_node **a);
 // array method
 void	stack_init(t_stack **stack, int size, char *argv[]);
 int	is_full(t_stack []);

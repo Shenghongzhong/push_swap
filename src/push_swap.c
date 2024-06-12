@@ -42,11 +42,11 @@ int	main(int argc, char *argv[])
 		sort_three(&a);
 	else if (argc <= 6)
 	{
-		print(a, "before sort 5");
+//		print(a, "before sort 5");
 		if (ft_dblst_size(a) == 5)
 			sort_five(&a, &b);
-		print(a, "a");
-		print(b, "b");
+//		print(a, "a");
+//		print(b, "b");
 	}
 	deallocate(&a);
 	deallocate(&b);
