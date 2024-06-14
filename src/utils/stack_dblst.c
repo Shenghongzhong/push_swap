@@ -6,11 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 09:54:39 by szhong            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/06/06 14:05:00 by szhong           ###   ########.fr       */
-=======
-/*   Updated: 2024/06/14 09:37:02 by szhong           ###   ########.fr       */
->>>>>>> szhong/back-to-int-data
+/*   Updated: 2024/06/14 16:36:42 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -23,7 +19,7 @@ void	dblst_stack_init(t_stack_node **a, int size, char *argv[])
 	t_stack_node	*tmp;
 
 	i = 0;
-	while (i <= size - 1)
+	while (i < size)
 	{
 		tmp = ft_dblst_new(ft_atoi(argv[i]));
 		ft_dblstadd_back(a, tmp);
@@ -43,16 +39,11 @@ void	dblst_stack_init(t_stack_node **a, int size, char *argv[])
 t_stack_node	*ft_dblst_new(int data)
 {
 	t_stack_node	*db_lst;
-	int	*ptr_data;
 
 	db_lst = (t_stack_node *)malloc(sizeof(t_stack_node));
 	if (db_lst == NULL)
 		return (NULL);
-	db_lst->data = (int *)malloc(sizeof(int));
-	ptr_data = db_lst->data;
-	if (ptr_data == NULL)
-		return (NULL);
-	*(ptr_data) = data;
+	db_lst->data = data;
 	db_lst->next = NULL;
 	db_lst->prev = NULL;
 	db_lst->rank = -1;
@@ -97,12 +88,12 @@ void    ft_dblstadd_front(t_stack_node **stack, t_stack_node *new)
  * 2. if it isn't the last pointer then update the prev pointer of the next
  * 3. if it isn't the first pointer then update the next poiner of the prev
  */
-void	ft_dblst_delnode(t_stack_node **top, t_stack_node *del)
+void	ft_dblst_delnode(t_stack_node **stack, t_stack_node *del)
 {
-	if (!*top || !del)
+	if (!*stack || !del)
 		return ;
-	if (*top == del)
-		*top = del->next;
+	if (*stack == del)
+		*stack = del->next;
 	if (del->next != NULL)
 		del->next->prev = del->prev;
 	if (del->prev != NULL)

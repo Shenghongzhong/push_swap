@@ -57,3 +57,4 @@ output.txt
 *.swp
 ./checker_linux
 checker_linux
+tests/

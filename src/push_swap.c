@@ -18,12 +18,9 @@ void	print(t_stack_node *node, char *signals)
 	ft_putendl_fd(signals, 1);
 	while (node->prev != NULL)
 		node = node->prev;
-	ft_printf("%d\n", *(node->data));
 	while (node->next != NULL)
 	{
 		node = node->next;
-		if (node->data != NULL)
-			ft_printf("%d\n", *(node->data));
 	}
 	ft_printf("\n");
 }

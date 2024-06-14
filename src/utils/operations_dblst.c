@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:48:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/14 16:02:30 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/14 16:26:30 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -16,7 +16,6 @@
 void	dblst_push(t_stack_node **src, t_stack_node **dst)
 {
 	t_stack_node	*tmp;
-	int	data;
 
 	tmp = ft_dblst_new((*src)->data);
 	tmp->rank = (*src)->rank;
@@ -31,7 +30,6 @@ void	dblst_push(t_stack_node **src, t_stack_node **dst)
 void	dblst_rota(t_stack_node **stack)
 {
 	t_stack_node	*dup;
-	int	data;
 
 	if (!(*stack) || !((*stack)->next))
 		return ;
@@ -40,7 +38,6 @@ void	dblst_rota(t_stack_node **stack)
 	dup = ft_dblst_new((*stack)->data);
 	ft_dblstadd_back(stack, dup);
 	ft_dblst_delnode(stack, *stack);
-	//free(dup);
 }
 
 void	dblst_rrota(t_stack_node **stack)
@@ -78,14 +75,4 @@ void	deallocate(t_stack_node **stack)
 		curr = next;
 	}
 	*stack = NULL;
-}
-
-int	check_stack(t_stack_node **stack)
-{
-	if (!(*stack) || !((*stack)->data))
-	{
-		ft_putendl_fd("Error: Unintialised Stack", 2);
-		return (-1);
-	}
-	return (1);
 }

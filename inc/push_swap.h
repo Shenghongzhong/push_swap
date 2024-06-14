@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:52:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/14 16:00:43 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/14 16:39:53 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -40,12 +40,11 @@ void	ft_dblstadd_back(t_stack_node *[], t_stack_node *);
 void	ft_dblst_delnode(t_stack_node *[], t_stack_node *);
 void	deallocate(t_stack_node **stack);
 
-void	dblst_stack_init(t_stack_node **a, t_stack_node **b, int size, char *argv[]);
+void	dblst_stack_init(t_stack_node **a, int size, char *argv[]);
 void	dblst_swap(t_stack_node *a, t_stack_node *n);
 void	dblst_rota(t_stack_node **stack);
 void	dblst_push(t_stack_node **a, t_stack_node **b);
 void	dblst_rrota(t_stack_node **stack);	
-int	check_stack(t_stack_node **stack);
 
 void	papb(t_stack_node **src, t_stack_node **dst, char *papb);
 void	sasb(t_stack_node **stack, char *sasb);
@@ -67,8 +66,11 @@ void	deallocate(t_stack_node *[]);
 void	rank_stack(t_stack_node **stack, int size);
 int	*rank_arr(int *arr, int n);
 
+// to be deleted
 void	comp_first_node(t_stack_node **a, t_stack_node **b);
 void	comp_second_node(t_stack_node **a, t_stack_node **b);
+// =============
+
 t_stack_node	*tail_node(t_stack_node	*stack);
 
 void	papb(t_stack_node **src, t_stack_node **dst, char *papb);
