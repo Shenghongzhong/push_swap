@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:52:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/12 20:49:30 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/14 11:30:39 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -14,6 +14,8 @@
 
 # include <stddef.h>
 # include <limits.h>
+
+
 typedef struct s_dblst
 {
 	int	data;
@@ -68,6 +70,11 @@ void	case_two(t_stack_node **b, t_stack_node **a);
 void	case_three(t_stack_node **b, t_stack_node **a);
 void	case_four(t_stack_node **b, t_stack_node **a);
 void	case_five(t_stack_node **b, t_stack_node **a);
+
+
+// arrayy utils
+void	free_arr(char **arr);
+int	ft_arr_size(char *[]);
 // array method
 void	stack_init(t_stack **stack, int size, char *argv[]);
 int	is_full(t_stack []);

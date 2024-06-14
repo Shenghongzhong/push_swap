@@ -6,22 +6,11 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:48:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/12 18:19:51 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/13 15:25:44 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 #include <stdlib.h>
-
-/*
-void	traverse_heads(t_stack_node **a, t_stack_node **b)
-{
-	if ((*a)->prev != NULL)
-		while ((*a)->prev != NULL)
-			*a = (*a)->prev;
-	if ((*b)->prev != NULL)
-		while ((*b)->prev != NULL)
-			*b = (*b)->prev;
-}*/
 
 void	dblst_push(t_stack_node **src, t_stack_node **dst)
 {

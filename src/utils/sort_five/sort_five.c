@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:20:36 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/12 20:49:52 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/14 11:34:19 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -120,7 +120,5 @@ void	sort_five(t_stack_node **a, t_stack_node **b)
 		case_four(b, a);
 	else
 		case_five(b, a);
-//	comp_first_node(a, b);
-//	comp_second_node(a, b);
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 09:54:39 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/08 14:09:07 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/14 09:37:02 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -18,11 +18,11 @@ void	dblst_stack_init(t_stack_node **a, int size, char *argv[])
 	int	i;
 	t_stack_node	*tmp;
 
-	i = 1;
-	while (i < size)
+	i = 0;
+	while (i <= size - 1)
 	{
 		tmp = ft_dblst_new(ft_atoi(argv[i]));
-		ft_dblstadd_front(a, tmp);
+		ft_dblstadd_back(a, tmp);
 		i++;
 	}
 	rank_stack(a, size);
