@@ -1,0 +1,44 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+create_stack	utils/stack.c	/^t_stack	*create_stack(unsigned size)$/;"	f
+dblst_push	utils/operations_dblst.c	/^void	dblst_push(t_stack_node **src, t_stack_node **dst)$/;"	f
+dblst_rota	utils/operations_dblst.c	/^void	dblst_rota(t_stack_node **stack)$/;"	f
+dblst_rrota	utils/operations_dblst.c	/^void	dblst_rrota(t_stack_node **stack)$/;"	f
+dblst_stack_init	utils/stack_dblst.c	/^void	dblst_stack_init(t_stack_node **a, int size, char *argv[])$/;"	f
+dblst_swap	utils/stack_swap.c	/^void	dblst_swap(t_stack_node *a, t_stack_node *b)$/;"	f
+deallocate	utils/operations_dblst.c	/^void	deallocate(t_stack_node **stack)$/;"	f
+edge_pointer	utils/stack_swap.c	/^static void	edge_pointer(t_stack_node *a)$/;"	f	file:
+ft_dblst_delnode	utils/stack_dblst.c	/^void	ft_dblst_delnode(t_stack_node **top, t_stack_node *del)$/;"	f
+ft_dblst_new	utils/stack_dblst.c	/^t_stack_node	*ft_dblst_new(int data)$/;"	f
+ft_dblstadd_back	utils/stack_dblst.c	/^void	ft_dblstadd_back(t_stack_node **stack, t_stack_node *new_head)$/;"	f
+ft_dblstadd_front	utils/stack_dblst.c	/^void    ft_dblstadd_front(t_stack_node **stack, t_stack_node *new)$/;"	f
+ft_intlcpy	utils/operation.c	/^size_t	ft_intlcpy(int *dst, const int *src, size_t size)$/;"	f
+is_empty	utils/stack.c	/^int	is_empty(t_stack *stack)$/;"	f
+is_full	utils/stack.c	/^int	is_full(t_stack *stack)$/;"	f
+is_neighbour	utils/stack_swap.c	/^static int	is_neighbour(t_stack_node *a, t_stack_node *b)$/;"	f	file:
+main	push_swap.c	/^int	main(int argc, char *argv[])$/;"	f
+matrix_swap	utils/stack_swap.c	/^static void	matrix_swap(t_stack_node **s, t_stack_node **a, t_stack_node **b)$/;"	f	file:
+papb	utils/psop_uniq.c	/^void	papb(t_stack_node **src, t_stack_node **dst, char *papb)$/;"	f
+peek	utils/operation.c	/^int	peek(t_stack *stack)$/;"	f
+pop	utils/operation.c	/^int	pop(t_stack *stack)$/;"	f
+print	push_swap.c	/^void	print(t_stack_node *node, char *signals)$/;"	f
+push	utils/operation.c	/^void	push(t_stack *stack, int item)$/;"	f
+putstack	utils/stack.c	/^void	putstack(t_stack *stack)$/;"	f
+rank_arr	utils/rank_stack.c	/^int	*rank_arr(int *arr, int n) $/;"	f
+rank_stack	utils/rank_stack.c	/^void	rank_stack(t_stack_node **stack, int size)$/;"	f
+rarb	utils/psop_uniq.c	/^void	rarb(t_stack_node **stack, char *rarb)$/;"	f
+rota	utils/operation.c	/^void	rota(t_stack *stack)$/;"	f
+rr	utils/psop_match.c	/^void	rr(t_stack_node **a, t_stack_node **b)$/;"	f
+rrota	utils/operation.c	/^void	rrota(t_stack *stack)$/;"	f
+rrota_ab	utils/psop_uniq.c	/^void	rrota_ab(t_stack_node **stack, char *rrab)$/;"	f
+rrr	utils/psop_match.c	/^void	rrr(t_stack_node **a, t_stack_node **b)$/;"	f
+sasb	utils/psop_uniq.c	/^void	sasb(t_stack_node **stack, char *sasb)$/;"	f
+sort_three	utils/sort_three.c	/^void	sort_three(t_stack_node **stack)$/;"	f
+ss	utils/psop_match.c	/^void	ss(t_stack_node **a, t_stack_node **b)$/;"	f
+stack_init	utils/stack.c	/^void	stack_init(t_stack **stack, int size, char *argv[])$/;"	f
+swap	utils/operation.c	/^void	swap(t_stack *stack)$/;"	f
+swapper_init	utils/stack_swap.c	/^static void	swapper_init(t_stack_node **s, t_stack_node **a, t_stack_node **b)$/;"	f	file:

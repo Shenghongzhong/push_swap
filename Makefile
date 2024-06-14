@@ -6,7 +6,7 @@
 #    By: szhong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 14:29:39 by szhong            #+#    #+#              #
-#    Updated: 2024/06/06 13:15:37 by szhong           ###   ########.fr        #
+#    Updated: 2024/06/14 15:59:43 by szhong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,18 @@ SRCS	:=	\
 		utils/operations_dblst.c \
 		utils/stack_dblst.c \
 		utils/stack_swap.c \
+		utils/rank_stack.c \
 		utils/psop_uniq.c \
-		utils/psop_match.c
+		utils/psop_match.c \
+		utils/sort_three.c \
+		utils/stack_utils.c \
+		utils/sort_five/sort_five.c \
+		utils/sort_five/case_a.c \
+		utils/sort_five/case_b.c \
+		utils/sort_five/case_c.c \
+		utils/sort_five/case_d.c \
+		utils/sort_five/case_e.c \
+
 
 LIBFT_PATH	:=	./libft
 INCLUDE		=	-I ./inc -I $(LIBFT_PATH)/inc
@@ -33,10 +43,11 @@ all:$(NAME)
 
 $(NAME):  $(addprefix $(OBJS_DIR)/, $(OBJS))
 	@$(CC) $(addprefix $(OBJS_DIR)/, $(OBJS)) -o $(NAME) $(LDFLAGS)
+	@echo "Build completed"
 
 $(OBJS_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(@D)
-	$(CC) $(INCLUDE) -c $< -o $@
+	@$(CC) $(INCLUDE) -c $< -o $@
 clean:
 	@rm -rf $(OBJS_DIR)
 
@@ -46,8 +57,11 @@ fclean: clean
 
 re:	fclean all
 
+N	?= 5
 test:
-	@echo "Running tests..."
-	@./push_swap $(shell  shuf -i 1-5000 -n 10)
+	@ARG=$$(shuf -i 1-10000 -n $(N) | tr '\n' ' '); \
+	echo "ARG generated: $$ARG"; \
+	echo "Running test with the checker";\
+	./push_swap $$ARG | ./checker_linux $$ARG
 
 .PHONY: all clean fclean re

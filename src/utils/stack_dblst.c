@@ -6,34 +6,30 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 09:54:39 by szhong            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/06/06 14:05:00 by szhong           ###   ########.fr       */
+=======
+/*   Updated: 2024/06/14 09:37:02 by szhong           ###   ########.fr       */
+>>>>>>> szhong/back-to-int-data
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 #include "libft.h"
 #include <stdlib.h>
 
-void	dblst_stack_init(t_stack_node **a, t_stack_node **b, int size, char *argv[])
+void	dblst_stack_init(t_stack_node **a, int size, char *argv[])
 {
 	int	i;
 	t_stack_node	*tmp;
 
-	i = 1;
-	while (i < size)
+	i = 0;
+	while (i <= size - 1)
 	{
 		tmp = ft_dblst_new(ft_atoi(argv[i]));
-		ft_dblstadd_front(a, tmp);
+		ft_dblstadd_back(a, tmp);
 		i++;
 	}
-	if (*b == NULL)
-	{
-		*b = (t_stack_node *)malloc(sizeof(t_stack_node));
-		if (*b == NULL)
-			return ;
-		(*b)->next = NULL;
-		(*b)->data = NULL;
-		(*b)->prev = NULL;
-	}	
+	rank_stack(a, size);
 }
 
 /**
@@ -59,6 +55,7 @@ t_stack_node	*ft_dblst_new(int data)
 	*(ptr_data) = data;
 	db_lst->next = NULL;
 	db_lst->prev = NULL;
+	db_lst->rank = -1;
 	return (db_lst);
 }
 
@@ -133,36 +130,3 @@ void	ft_dblstadd_back(t_stack_node **stack, t_stack_node *new_head)
 	new_head->next = NULL;
 	return ;
 }
-/**
- * @breif Delete one node from the linked list.
- *
- * The function aims to delete one element with the function helper.
- *
- * @param top a double pointer for modifying and updating the head pointer
- * @param del a function pointer to the function which delete an element
- *
- * @example
- * @code
- * #include <stdlib.h>
- * #include <string.h>
- *
- * void	del(int data);
- * void	ft_dblst_delone(t_stack_node **top, void (*del)(int *))
- *
- * int	main()
- * {
- *	t_stack_list
- * }
- * @endcode
- */
-//void	ft_dblst_delone(t_stack_node *top, void (*del)(int *data))
-//{
-//	t_stack_node	*tmp;
-
-//	if (!*top || !top || !del)
-//		return ;
-//	del(top->data));
-//	if (*top != NULL)
-//		(*top)->prev = NULL;
-//	free(top);
-//}
