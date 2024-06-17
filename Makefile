@@ -6,7 +6,7 @@
 #    By: szhong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 14:29:39 by szhong            #+#    #+#              #
-#    Updated: 2024/06/14 15:59:43 by szhong           ###   ########.fr        #
+#    Updated: 2024/06/17 16:30:53 by szhong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ SRCS	:=	\
 		utils/psop_match.c \
 		utils/sort_three.c \
 		utils/stack_utils.c \
+		utils/input_valid.c \
+		utils/error_handler.c \
 		utils/sort_five/sort_five.c \
 		utils/sort_five/case_a.c \
 		utils/sort_five/case_b.c \

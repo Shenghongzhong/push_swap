@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:52:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/14 16:39:53 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/17 16:30:10 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -31,7 +31,6 @@ typedef struct s_stack
 	int	*arr;
 }	t_stack;
 
-void	print(t_stack_node *node, char *signals);
 t_stack	*create_stack(unsigned);
 
 t_stack_node	*ft_dblst_new(int data);
@@ -81,6 +80,7 @@ void	ss(t_stack_node **a, t_stack_node **b);
 void	rrr(t_stack_node **a, t_stack_node **b);
 void	rr(t_stack_node **a, t_stack_node **b);
 
+// sorting small numbers
 void	sort_three(t_stack_node **stack);
 void	sort_five(t_stack_node **a, t_stack_node **b);
 int	handle_edge(t_stack_node **a, t_stack_node **b, int size);
@@ -91,9 +91,17 @@ void	case_four(t_stack_node **b, t_stack_node **a);
 void	case_five(t_stack_node **b, t_stack_node **a);
 
 
-// arrayy utils
+// valid input check
+void	check_argv(char	***arr, char *str);
+char	**handle_args(char **av, int *ac);
+
+// error handler
+void	ft_puterror(char *err_msg);
 void	free_arr(char **arr);
-int	ft_arr_size(char *[]);
+int	ft_arr_size(char **arr);
+void	print(t_stack_node *node, char *signals);
+
+
 // array method
 void	stack_init(t_stack **stack, int size, char *argv[]);
 int	is_full(t_stack []);
