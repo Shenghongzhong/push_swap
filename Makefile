@@ -6,7 +6,7 @@
 #    By: szhong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 14:29:39 by szhong            #+#    #+#              #
-#    Updated: 2024/06/17 16:30:53 by szhong           ###   ########.fr        #
+#    Updated: 2024/06/19 11:48:40 by szhong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS	:=	\
 		push_swap.c \
 		utils/operation.c \
 		utils/stack.c \
+		utils/ft_dblst.c \
 		utils/operations_dblst.c \
 		utils/stack_dblst.c \
 		utils/stack_swap.c \
@@ -32,7 +33,7 @@ SRCS	:=	\
 		utils/sort_five/case_b.c \
 		utils/sort_five/case_c.c \
 		utils/sort_five/case_d.c \
-		utils/sort_five/case_e.c \
+		utils/sort_five/case_e.c 
 
 
 LIBFT_PATH	:=	./libft

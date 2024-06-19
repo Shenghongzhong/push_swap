@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:52:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/17 16:30:10 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/19 12:16:33 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -14,7 +14,7 @@
 
 # include <stddef.h>
 # include <limits.h>
-
+# include <stdbool.h>
 
 typedef struct s_dblst
 {
@@ -37,13 +37,13 @@ t_stack_node	*ft_dblst_new(int data);
 void	ft_dblstadd_front(t_stack_node **stack, t_stack_node *new_node);
 void	ft_dblstadd_back(t_stack_node *[], t_stack_node *);
 void	ft_dblst_delnode(t_stack_node *[], t_stack_node *);
-void	deallocate(t_stack_node **stack);
 
-void	dblst_stack_init(t_stack_node **a, int size, char *argv[]);
+void	dblst_stack_init(t_stack_node **a, int size, char *argv[], bool is_argc_2);
 void	dblst_swap(t_stack_node *a, t_stack_node *n);
 void	dblst_rota(t_stack_node **stack);
 void	dblst_push(t_stack_node **a, t_stack_node **b);
 void	dblst_rrota(t_stack_node **stack);	
+void	deallocate(t_stack_node **stack);
 
 void	papb(t_stack_node **src, t_stack_node **dst, char *papb);
 void	sasb(t_stack_node **stack, char *sasb);
@@ -55,12 +55,6 @@ void	rrr(t_stack_node **a, t_stack_node **b);
 
 int	ft_dblst_size(t_stack_node *dblst);
 
-void	dblst_stack_init(t_stack_node **Stack, int size, char *argv[]);
-void	dblst_swap(t_stack_node *a, t_stack_node *b);
-void	dblst_rota(t_stack_node **stack);
-void	dblst_rrota(t_stack_node **stack);
-void	dblst_push(t_stack_node **a, t_stack_node **b);
-void	deallocate(t_stack_node *[]);
 
 void	rank_stack(t_stack_node **stack, int size);
 int	*rank_arr(int *arr, int n);
@@ -100,6 +94,9 @@ void	ft_puterror(char *err_msg);
 void	free_arr(char **arr);
 int	ft_arr_size(char **arr);
 void	print(t_stack_node *node, char *signals);
+int	error_syntax(char *nbr);
+int	error_repetition(t_stack_node *a, int nb);
+void	error_free(t_stack_node **a, char **argv, bool is_argc_2);
 
 
 // array method

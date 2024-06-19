@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:18:28 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/17 16:21:43 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/19 12:03:07 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -19,12 +19,12 @@ void	check_argv(char	***arr, char *str)
 
 	if ((str[0] == '-' || str[0] == '+') && str[1] == '\0')
 	{
-		ft_puterror("Unvalid argument input: No valid number");
+		ft_puterror("Error");
 		free_arr(*arr);
 	}
 	if (!(str[0] == '-' || str[0] == '+' || (str[0] >= 48 && str[0] < 58)))
 	{
-		ft_puterror("Unvalid arument input: No valid number");
+		ft_puterror("Error");
 		free_arr(*arr);
 	}
 	i = -1;
@@ -32,7 +32,7 @@ void	check_argv(char	***arr, char *str)
 	{
 		if (!(str[i] >= 48 && str[i] < 58))
 		{
-			ft_puterror("Unvalid arument input: No valid number");
+			ft_puterror("Error");
 			free_arr(*arr);
 		}
 	}

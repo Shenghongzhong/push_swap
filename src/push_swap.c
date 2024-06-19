@@ -12,24 +12,19 @@ int	main(int argc, char *argv[])
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
-	char	**arr;
 
 	a = NULL;
 	b = NULL;
-	arr = handle_args(argv, &argc);
-	dblst_stack_init(&a, argc, arr);
-	if (argc < 4)
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+		return (-1);
+	else if (argc == 2)
+		argv = ft_split(argv[1], ' ');
+	dblst_stack_init(&a, argc, argv + 1, argc == 2);
+	if (argc - 1 < 4)
 		sort_three(&a);
-	else if (argc < 6)
+	else if (argc- 1 < 6)
 		if (ft_dblst_size(a) == 5)
 			sort_five(&a, &b);
-/*	else if (argc > 5)
-	{
-		int	i;
-		int	j;
-
-		i 1;
-	}*/
 	deallocate(&a);
 	deallocate(&b);
 	return (0);
