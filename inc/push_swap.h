@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:52:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/19 12:16:33 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/20 13:56:04 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -20,6 +20,11 @@ typedef struct s_dblst
 {
 	int	data;
 	int	rank;
+	bool	before_median;
+	bool	least_moves;
+	int	idx;
+	int	total_moves;
+	struct s_dblst	*target_node;
 	struct s_dblst	*next;
 	struct s_dblst	*prev;
 }		t_stack_node;
@@ -33,6 +38,7 @@ typedef struct s_stack
 
 t_stack	*create_stack(unsigned);
 
+bool	is_sorted(t_stack_node *a);
 t_stack_node	*ft_dblst_new(int data);
 void	ft_dblstadd_front(t_stack_node **stack, t_stack_node *new_node);
 void	ft_dblstadd_back(t_stack_node *[], t_stack_node *);
@@ -85,6 +91,8 @@ void	case_four(t_stack_node **b, t_stack_node **a);
 void	case_five(t_stack_node **b, t_stack_node **a);
 
 
+// sorting big numbers
+void	sort_big(t_stack_node *[], t_stack_node *[]);
 // valid input check
 void	check_argv(char	***arr, char *str);
 char	**handle_args(char **av, int *ac);

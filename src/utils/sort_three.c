@@ -6,10 +6,24 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 15:57:40 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/14 11:31:33 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/19 13:54:00 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
+#include <stdbool.h>
+
+bool	is_sorted(t_stack_node *a)
+{
+	if (NULL == a)
+		return (1);
+	while (a->next)
+	{
+		if (a->data > a->next->data)
+			return (false);
+		a = a->next;
+	}
+	return (true);
+}
 
 void	sort_three(t_stack_node **stack)
 {

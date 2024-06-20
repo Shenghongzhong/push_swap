@@ -1,7 +1,12 @@
-/*   By: szhong <marvin@42.fr>                      +#+  +:+       +#+        */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/10 12:00:49 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/03 09:26:48 by szhong           ###   ########.fr       */
+/*   Created: 2024/06/19 13:47:37 by szhong            #+#    #+#             */
+/*   Updated: 2024/06/20 12:58:58 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -20,11 +25,17 @@ int	main(int argc, char *argv[])
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
 	dblst_stack_init(&a, argc, argv + 1, argc == 2);
-	if (argc - 1 < 4)
-		sort_three(&a);
-	else if (argc- 1 < 6)
-		if (ft_dblst_size(a) == 5)
+	if (!is_sorted(a))
+	{
+		// 2 numbers hasn't been considered
+		if (argc - 1 < 4)
+			sort_three(&a);
+		// 4 numbers hasn't been considered
+		else if (argc - 1 < 6)
 			sort_five(&a, &b);
+		else
+			sort_big(&a, &b);
+	}
 	deallocate(&a);
 	deallocate(&b);
 	return (0);

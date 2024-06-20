@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 09:54:39 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/19 13:42:54 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/19 13:45:28 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -62,5 +62,7 @@ void	dblst_stack_init(t_stack_node **a, int size, char *argv[], bool is_argc_2)
 		ft_dblstadd_back(a, tmp);
 		i++;
 	}
+	if (is_argc_2)
+		free_arr(argv);
 	rank_stack(a, size - 1);
 }

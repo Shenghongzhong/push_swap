@@ -6,7 +6,7 @@
 #    By: szhong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 14:29:39 by szhong            #+#    #+#              #
-#    Updated: 2024/06/19 11:48:40 by szhong           ###   ########.fr        #
+#    Updated: 2024/06/20 13:54:21 by szhong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS	:=	\
 		utils/stack_utils.c \
 		utils/input_valid.c \
 		utils/error_handler.c \
+		utils/sort_big.c \
 		utils/sort_five/sort_five.c \
 		utils/sort_five/case_a.c \
 		utils/sort_five/case_b.c \
@@ -66,5 +67,8 @@ test:
 	echo "ARG generated: $$ARG"; \
 	echo "Running test with the checker";\
 	./push_swap $$ARG | ./checker_linux $$ARG
+
+check:
+	@shuf -i 1-10000 -n $(N) | xargs ./push_swap
 
 .PHONY: all clean fclean re
