@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:59:04 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/20 17:07:03 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/21 10:37:17 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -201,7 +201,7 @@ void	sort_big(t_stack_node **a, t_stack_node **b)
 	int	size_a;
 
 	size_a = ft_dblst_size(*a);
-	while (size_a-- > 5)
+	while (size_a-- > 3)
 		papb(a, b, "pb");
 	sort_three(a);
 	while (*b)
