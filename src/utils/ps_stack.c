@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dblst.c                                         :+:      :+:    :+:   */
+/*   ps_stack.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 11:48:00 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/19 11:48:16 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/21 17:50:50 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -20,7 +20,7 @@
  * @param data The element to assign as the list element
  * @return A pointer to the new node or NULL on memory allocation failure
  */
-t_stack_node	*ft_dblst_new(int data)
+t_stack_node	*ps_dblst_new(int data)
 {
 	t_stack_node	*db_lst;
 
@@ -32,28 +32,6 @@ t_stack_node	*ft_dblst_new(int data)
 	db_lst->prev = NULL;
 	db_lst->rank = -1;
 	return (db_lst);
-}
-
-/**
- *  * @breif Add the node to the front of existing nodes.
- *   *
- *    * The function inserts a node before the head node.
- *     *
- *      * @param stack a double pointer to the linked list for modifying the pointer
- *       * @param new a node to insert before the head node
- *        */
-void    ft_dblstadd_front(t_stack_node **stack, t_stack_node *new)
-{
-	if (!new)
-		return ;
-	if (!stack || !*stack)
-	{
-		*stack = new;
-		return ;
-	}
-	new->next = *stack;
-	(*stack)->prev = new;
-	*stack = new;
 }
 
 /**
@@ -72,7 +50,7 @@ void    ft_dblstadd_front(t_stack_node **stack, t_stack_node *new)
  * 2. if it isn't the last pointer then update the prev pointer of the next
  * 3. if it isn't the first pointer then update the next poiner of the prev
  */
-void	ft_dblst_delnode(t_stack_node **stack, t_stack_node *del)
+void	ps_dblst_delnode(t_stack_node **stack, t_stack_node *del)
 {
 	if (!*stack || !del)
 		return ;
@@ -86,22 +64,78 @@ void	ft_dblst_delnode(t_stack_node **stack, t_stack_node *del)
 	return ;
 }
 
-void	ft_dblstadd_back(t_stack_node **stack, t_stack_node *new_head)
+/**
+ * @breif Append a node to the doubly linked list 
+ *
+ * add a node to the end of the doubly linked list
+ * @param stack a pointer to the head 
+ * @param new_tail a pointer to the node to append
+ * @return a new doubly linked list
+ *
+ */
+void	ps_dblstadd_back(t_stack_node **stack, t_stack_node *new_tail)
 {
-	t_stack_node	*old_head;
+	t_stack_node	*dblst;
 
-	if (!new_head || !stack)
+	if (!new_tail || !stack)
 		return ;
 	if (*stack == NULL)
 	{
-		*stack = new_head;
+		*stack = new_tail;
 		return ;
 	}
-	old_head = *stack;
-	while (old_head->next != NULL)
-		old_head = old_head->next;
-	old_head->next = new_head;
-	new_head->prev = old_head;
-	new_head->next = NULL;
+	dblst = *stack;
+	while (dblst->next != NULL)
+		dblst = dblst->next;
+	dblst->next = new_tail;
+	new_tail->prev = dblst;
+	new_tail->next = NULL;
 	return ;
+}
+
+/**
+* @breif Add the node to the front of existing nodes.
+*
+* The function inserts a node before the head node.
+*
+* @param stack a double pointer to the linked list for modifying the pointer
+* @param new a node to insert before the head node
+**/
+void	ps_dblstadd_front(t_stack_node **stack, t_stack_node *new_node)
+{
+	if (!new_node)
+		return ;
+	if (!stack || !*stack)
+	{
+		*stack = new_node;
+		return ;
+	}
+	new_node->next = *stack;
+	(*stack)->prev = new_node;
+	*stack = new_node;
+}
+
+/**
+ * @breif Count the total number of nodes in doubly linked list
+ *
+ * The function calculates the number of nodes in the list
+ *
+ * @param dblst a pointer to a node in the list
+ * @return an integer for the number of nodes in the list
+ */
+int	ps_dblst_size(t_stack_node *dblst)
+{
+	int	count;
+
+	if (!dblst)
+		return (-1);
+	count = 0;
+	while (dblst->prev != NULL)
+		dblst = dblst->prev;
+	while (dblst)
+	{
+		dblst = dblst->next;
+		count++;
+	}
+	return (count);
 }

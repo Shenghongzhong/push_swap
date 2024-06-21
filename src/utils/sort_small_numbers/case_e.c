@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:38:18 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/14 15:30:51 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/21 16:22:54 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -17,7 +17,7 @@ static void	case_five_odd(t_stack_node **b, t_stack_node **a, int rank)
 	{
 		papb(b, a, "pa");
 		rarb(a, "ra");
-		papb(b, a, "pa");	
+		papb(b, a, "pa");
 	}
 	else if (rank == 3)
 	{
@@ -39,7 +39,7 @@ static void	case_five_even(t_stack_node **b, t_stack_node **a, int rank)
 		papb(b, a, "pa");
 		sasb(a, "sa");
 		papb(b, a, "pa");
-		rarb(a, "ra");	
+		rarb(a, "ra");
 	}
 	else if (rank == 4)
 	{
@@ -51,6 +51,7 @@ static void	case_five_even(t_stack_node **b, t_stack_node **a, int rank)
 	}
 	return ;
 }
+
 void	case_five(t_stack_node **b, t_stack_node **a)
 {
 	t_stack_node	*t_b;

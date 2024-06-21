@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_five.c                                        :+:      :+:    :+:   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:20:36 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/21 10:16:01 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/21 15:10:27 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -73,10 +73,10 @@ void	sort_five(t_stack_node **a, t_stack_node **b)
 
 void	sort_small(t_stack_node **a, t_stack_node **b)
 {
-	while (ft_dblst_size(*a) > 3)
+	while (ps_dblst_size(*a) > 3)
 		papb(a, b, "pb");
 	sort_three(a);
-	if (ft_dblst_size(*b) == 1)
+	if (ps_dblst_size(*b) == 1)
 		sort_four(a, b);
 	else
 		sort_five(a, b);

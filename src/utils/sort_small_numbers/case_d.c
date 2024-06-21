@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:36:53 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/14 15:31:02 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/21 16:22:25 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -35,7 +35,7 @@ static void	case_four_odd(t_stack_node **b, t_stack_node **a, int rank)
 		papb(b, a, "pa");
 		sasb(a, "sa");
 		rarb(a, "ra");
-		rarb(a, "ra");	
+		rarb(a, "ra");
 	}
 	return ;
 }
