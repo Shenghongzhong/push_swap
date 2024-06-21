@@ -6,7 +6,7 @@
 #    By: szhong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 14:29:39 by szhong            #+#    #+#              #
-#    Updated: 2024/06/21 20:20:03 by szhong           ###   ########.fr        #
+#    Updated: 2024/06/21 20:21:30 by szhong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,7 @@ fclean: clean
 	@make $(NOPRINTMAKE) -C $(LIBFT_PATH) fclean
 	@rm -rf $(NAME)
 	@echo "$(YELLOW)[PUSH_SWAP] $(GREEN)Objects Removed$(DF)"
-	@echo "$(MAGENTA)Project Reset Ready$(DF)"
+	@echo "$(MAGENTA)========Project Reset Ready========$(DF)"
 
 re:	fclean all
 
