@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 15:57:40 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/19 13:54:00 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/21 10:07:48 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -23,6 +23,16 @@ bool	is_sorted(t_stack_node *a)
 		a = a->next;
 	}
 	return (true);
+}
+
+void	sort_two(t_stack_node **stack)
+{
+	t_stack_node	*a;
+
+	a = *stack;
+	if (a->data > a->next->data)
+		sasb(&a, "sa");
+	return ;
 }
 
 void	sort_three(t_stack_node **stack)
@@ -54,4 +64,15 @@ void	sort_three(t_stack_node **stack)
 	}
 	while ((*stack)->prev != NULL)
 		*stack = (*stack)->prev;
+}
+
+void	sort_tiny(t_stack_node **stack)
+{
+	if (!stack || !*stack)
+		return ;
+	if (ft_dblst_size(*stack) == 2)
+		sort_two(stack);
+	else if (ft_dblst_size(*stack) == 3)
+		sort_three(stack);
+	return ;
 }

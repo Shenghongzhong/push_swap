@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:20:36 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/19 14:22:29 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/21 10:16:01 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -28,77 +28,29 @@ int	handle_edge(t_stack_node **a, t_stack_node **b, int size)
 	return (0);
 }
 
-void	comp_first_node(t_stack_node **a, t_stack_node **b)
+void	sort_four(t_stack_node **a, t_stack_node **b)
 {
-	ft_printf("debug--\n");
-	if ((*a)->data > (*b)->data)
-		papb(b, a, "pa");
-	else if (tail_node(*a)->data < (*b)->data)
-	{
-		papb(b, a, "pa");
-		rarb(a, "ra");
-	}
-	else if ((*a)->data < (*b)->data && (*b)->data < (*a)->next->data)
-	{
-		papb(b, a, "pa");
-		sasb(a, "sa");
-	}
-	else if ((*a)->data < (*b)->data && (*b)->data > (*a)->next->data)
-	{
-		rrota_ab(a, "rra");
-		papb(b, a, "pa");
-		rarb(a, "ra");
-		rarb(a, "ra");
-	}
-	else if (tail_node(*a)->data > (*b)->next->data \
-			&& (*b)->data > (*a)->next->data)
-	{
-		rrota_ab(a, "rra");
-		papb(b, a, "pa");
-		if (handle_edge(a, b, 5) == 1)
-			return ;
-		rarb(a, "ra");
-		rarb(a, "ra");
-	}
-}
+	t_stack_node	*t_b;
 
-void	comp_second_node(t_stack_node **a, t_stack_node **b)
-{
-	ft_printf("debug---\n");
-	if ((*a)->data > (*b)->data)
+	t_b = *b;
+	if (t_b->rank == 1)
 		papb(b, a, "pa");
-	else if (tail_node(*a)->data < (*b)->data)
-	{
-		papb(b, a, "pa");
-		rarb(a, "ra");
-	}
-	else if ((*a)->data < (*b)->data && (*a)->next->data > (*b)->data)
+	else if (t_b->rank == 2)
 	{
 		papb(b, a, "pa");
 		sasb(a, "sa");
 	}
-	else if ((*a)->next->data < (*b)->data && tail_node(*a)->prev->data > (*b)->data)
+	else if (t_b->rank == 3)
 	{
-		rarb(a, "ra");
-		rarb(a, "ra");
-		papb(b, a, "pa");
-		rrota_ab(a, "rra");
-		rrota_ab(a, "rra");
-	}
-	else if (tail_node(*a)->prev->data < (*b)->data)
-	{	
 		rrota_ab(a, "rra");
 		papb(b, a, "pa");
 		rarb(a, "ra");
 		rarb(a, "ra");
 	}
-	else
+	else if (t_b->rank == 4)
 	{
-		rarb(a, "ra");
-		rarb(a, "ra");
 		papb(b, a, "pa");
-		rrota_ab(a, "rra");
-		rrota_ab(a, "rra");
+		rarb(a, "ra");
 	}
 }
 
@@ -106,9 +58,6 @@ void	sort_five(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*t_b;
 
-	papb(a, b, "pb");
-	papb(a, b, "pb");
-	sort_three(a);
 	t_b = *b;
 	if (t_b->rank == 1)
 		case_one(b, a);
@@ -120,5 +69,16 @@ void	sort_five(t_stack_node **a, t_stack_node **b)
 		case_four(b, a);
 	else
 		case_five(b, a);
+}
+
+void	sort_small(t_stack_node **a, t_stack_node **b)
+{
+	while (ft_dblst_size(*a) > 3)
+		papb(a, b, "pb");
+	sort_three(a);
+	if (ft_dblst_size(*b) == 1)
+		sort_four(a, b);
+	else
+		sort_five(a, b);
 	return ;
 }

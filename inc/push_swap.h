@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:52:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/20 13:56:04 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/21 10:17:03 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -81,7 +81,11 @@ void	rrr(t_stack_node **a, t_stack_node **b);
 void	rr(t_stack_node **a, t_stack_node **b);
 
 // sorting small numbers
+void	sort_tiny(t_stack_node **stack);
+void	sort_two(t_stack_node **stack);
 void	sort_three(t_stack_node **stack);
+void	sort_small(t_stack_node **a, t_stack_node **b);
+void	sort_four(t_stack_node **a, t_stack_node **b);
 void	sort_five(t_stack_node **a, t_stack_node **b);
 int	handle_edge(t_stack_node **a, t_stack_node **b, int size);
 void	case_one(t_stack_node **b, t_stack_node **a);

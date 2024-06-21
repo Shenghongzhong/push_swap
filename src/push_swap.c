@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 13:47:37 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/20 12:58:58 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/21 09:58:16 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -27,12 +27,10 @@ int	main(int argc, char *argv[])
 	dblst_stack_init(&a, argc, argv + 1, argc == 2);
 	if (!is_sorted(a))
 	{
-		// 2 numbers hasn't been considered
 		if (argc - 1 < 4)
-			sort_three(&a);
-		// 4 numbers hasn't been considered
+			sort_tiny(&a);
 		else if (argc - 1 < 6)
-			sort_five(&a, &b);
+			sort_small(&a, &b);
 		else
 			sort_big(&a, &b);
 	}
