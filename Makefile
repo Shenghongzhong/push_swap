@@ -6,7 +6,7 @@
 #    By: szhong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 14:29:39 by szhong            #+#    #+#              #
-#    Updated: 2024/06/20 13:54:21 by szhong           ###   ########.fr        #
+#    Updated: 2024/06/21 12:37:03 by szhong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,26 +15,23 @@ CC	:=	cc -Wall -Werror -Wextra -pedantic -g #-fsanitize=leak
 SRC_DIR	:=	./src
 SRCS	:=	\
 		push_swap.c \
-		utils/operation.c \
-		utils/stack.c \
 		utils/ft_dblst.c \
 		utils/operations_dblst.c \
+		utils/stack_utils.c \
 		utils/stack_dblst.c \
 		utils/stack_swap.c \
 		utils/rank_stack.c \
 		utils/psop_uniq.c \
 		utils/psop_match.c \
-		utils/sort_three.c \
-		utils/stack_utils.c \
-		utils/input_valid.c \
+		utils/sort_tiny.c \
 		utils/error_handler.c \
 		utils/sort_big.c \
-		utils/sort_five/sort_five.c \
-		utils/sort_five/case_a.c \
-		utils/sort_five/case_b.c \
-		utils/sort_five/case_c.c \
-		utils/sort_five/case_d.c \
-		utils/sort_five/case_e.c 
+		utils/sort_small/sort_small.c \
+		utils/sort_small/case_a.c \
+		utils/sort_small/case_b.c \
+		utils/sort_small/case_c.c \
+		utils/sort_small/case_d.c \
+		utils/sort_small/case_e.c 
 
 
 LIBFT_PATH	:=	./libft
@@ -70,5 +67,11 @@ test:
 
 check:
 	@shuf -i 1-10000 -n $(N) | xargs ./push_swap
+
+val:
+	@ARG=$$(shuf -i 1-100000 -n $(N) | tr '\n' ' '); \
+	echo "ARG generated: $$ARG"; \
+	(valgrind --leak-check=full ./push_swap $$ARG > /dev/null) 2>&1
+
 
 .PHONY: all clean fclean re

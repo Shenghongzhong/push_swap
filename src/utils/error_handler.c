@@ -6,31 +6,12 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:24:23 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/19 13:40:14 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/21 12:39:44 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 #include "push_swap.h"
 #include <stdlib.h>
-
-void	print(t_stack_node *node, char *signals)
-{
-	if (!node)
-	{
-		ft_putendl_fd("node is unitilised", 1);
-		return ;
-	}
-	ft_putendl_fd(signals, 1);
-	while (node->prev != NULL)
-		node = node->prev;
-	ft_printf("%d rank %d\n", node->data, node->rank);
-	while (node->next != NULL)
-	{
-		node = node->next;
-		ft_printf("%d rank %d\n", node->data, node->rank);
-	}
-	ft_printf("\n");
-}
 
 void	ft_puterror(char *err_msg)
 {
@@ -48,18 +29,6 @@ void	free_arr(char **arr)
 	while (arr[++i] != NULL)
 		free(arr[i]);
 	free(arr);
-}
-
-int	ft_arr_size(char **arr)
-{
-	int	len;
-
-	if (!arr)
-		return (0);
-	len = 0;
-	while (arr[len])
-		len++;
-	return (len);
 }
 
 int	error_syntax(char *nbr)
