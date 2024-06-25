@@ -6,7 +6,7 @@
 #    By: szhong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 14:29:39 by szhong            #+#    #+#              #
-#    Updated: 2024/06/21 20:21:30 by szhong           ###   ########.fr        #
+#    Updated: 2024/06/25 14:32:49 by szhong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,11 +69,12 @@ $(OBJS_DIR)/%.o: $(SRC_DIR)/%.c
 clean:
 	@make $(NOPRINTMAKE) -C $(LIBFT_PATH) clean
 	@rm -rf $(OBJS_DIR)
+	@echo "$(CYAN)[PUSH_SWAP] Objects Removed$(DF)"
 
 fclean: clean
 	@make $(NOPRINTMAKE) -C $(LIBFT_PATH) fclean
 	@rm -rf $(NAME)
-	@echo "$(YELLOW)[PUSH_SWAP] $(GREEN)Objects Removed$(DF)"
+	@echo "$(CYAN)[PUSH_SWAP] $(NAME) Removed$(DF)"
 	@echo "$(MAGENTA)========Project Reset Ready========$(DF)"
 
 re:	fclean all
