@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 11:48:00 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/21 17:50:50 by szhong           ###   ########.fr       */
+/*   Updated: 2024/07/08 15:26:12 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -127,11 +127,9 @@ int	ps_dblst_size(t_stack_node *dblst)
 {
 	int	count;
 
-	if (!dblst)
-		return (-1);
+	if (dblst == NULL)
+		return (1);
 	count = 0;
-	while (dblst->prev != NULL)
-		dblst = dblst->prev;
 	while (dblst)
 	{
 		dblst = dblst->next;

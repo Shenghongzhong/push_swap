@@ -58,3 +58,4 @@ output.txt
 ./checker_linux
 checker_linux
 tests/
+*.swo

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_stack.c                                         :+:      :+:    :+:   */
+/*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:48:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/21 15:19:03 by szhong           ###   ########.fr       */
+/*   Updated: 2024/07/08 19:04:09 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -17,46 +17,57 @@ void	dblst_push(t_stack_node **src, t_stack_node **dst)
 {
 	t_stack_node	*tmp;
 
-	tmp = ps_dblst_new((*src)->data);
-	tmp->rank = (*src)->rank;
+	if (*src == NULL)
+		return ;
+	tmp = *src;
+	*src = (*src)->next;
+	if (*src)
+		(*src)->prev = NULL;
+	tmp->prev = NULL;
 	if (*dst == NULL)
+	{
 		*dst = tmp;
+		tmp->next = NULL;
+	}
 	else
-		ps_dblstadd_front(&(*dst), tmp);
-	ps_dblst_delnode(&(*src), *src);
+	{
+		tmp->next = *dst;
+		tmp->next->prev = tmp;
+		*dst = tmp;
+	}
 	return ;
 }
 
 void	dblst_rota(t_stack_node **stack)
 {
-	t_stack_node	*dup;
+	t_stack_node	*last_node;
+	int				len;
 
-	if (!(*stack) || !((*stack)->next))
+	len = ps_dblst_size(*stack);
+	if (!stack || !*stack || len == 1)
 		return ;
-	while ((*stack)->prev != NULL)
-		(*stack) = (*stack)->prev;
-	dup = ps_dblst_new((*stack)->data);
-	dup->rank = (*stack)->rank;
-	ps_dblstadd_back(stack, dup);
-	ps_dblst_delnode(stack, *stack);
+	last_node = tail_node(*stack);
+	last_node->next = *stack;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	last_node->next->prev = last_node;
+	last_node->next->next = NULL;
 }
 
 void	dblst_rrota(t_stack_node **stack)
 {
-	t_stack_node	*node;
+	t_stack_node	*last;
+	int				len;
 
-	if (!(*stack) || !((*stack)->next))
+	len = ps_dblst_size(*stack);
+	if (!*stack || !stack || 1 == len)
 		return ;
-	while ((*stack)->prev != NULL)
-		(*stack) = (*stack)->prev;
-	node = *stack;
-	while (node->next != NULL)
-		node = node->next;
-	node->prev->next = NULL;
-	node->prev = NULL;
-	node->next = *stack;
-	(*stack)->prev = node;
-	*stack = node;
+	last = tail_node(*stack);
+	last->prev->next = NULL;
+	last->next = *stack;
+	last->prev = NULL;
+	*stack = last;
+	last->next->prev = last;
 }
 
 void	deallocate(t_stack_node **stack)

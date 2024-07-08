@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:03:10 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/14 16:32:39 by szhong           ###   ########.fr       */
+/*   Updated: 2024/07/08 14:59:48 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -14,14 +14,16 @@
 
 void	ss(t_stack_node **a, t_stack_node **b)
 {
-	sasb(a, "sa");
-	sasb(b, "sb");
+	dblst_swap(*a, (*a)->next);
+	dblst_swap(*b, (*b)->next);
+	ft_putendl_fd("ss", 1);
 }
 
 void	rr(t_stack_node **a, t_stack_node **b)
 {
-	rarb(a, "ra");
-	rarb(b, "rb");
+	dblst_rota(a);
+	dblst_rota(b);
+	ft_putendl_fd("rr", 1);
 }
 
 void	rrr(t_stack_node **a, t_stack_node **b)

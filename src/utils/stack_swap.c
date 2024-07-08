@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:31:09 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/21 16:21:55 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/26 16:17:11 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -70,7 +70,6 @@ void	dblst_swap(t_stack_node *a, t_stack_node *b)
 	edge_pointer(a);
 	edge_pointer(b);
 }
-
 /*
 #include <stdio.h>
 void	print(t_stack_node *node)

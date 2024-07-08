@@ -6,7 +6,7 @@
 #    By: szhong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 14:29:39 by szhong            #+#    #+#              #
-#    Updated: 2024/06/25 14:32:49 by szhong           ###   ########.fr        #
+#    Updated: 2024/07/08 15:40:59 by szhong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ SRCS	:=	\
 		utils/sort_small_numbers/case_b.c \
 		utils/sort_small_numbers/case_c.c \
 		utils/sort_small_numbers/case_d.c \
-		utils/sort_small_numbers/case_e.c 
+		utils/sort_small_numbers/case_e.c \
+		utils/misc.c
 
 
 LIBFT_PATH	:=	./libft
@@ -53,7 +54,11 @@ OBJS		:=	$(patsubst %c, %o, $(SRCS))
 OBJS_DIR	:=	./obj
 NOPRINTMAKE	:= 	--no-print-directory 
 
-all:$(NAME)
+# List of source files for ctags
+CTAGS_SRC := $(shell find src -name '*.c') $(shell find inc -name '*.h') $(shell find libft/src -name '*.c')
+TAGS_FILE := tags
+
+all:$(NAME) $(TAGS_FILE)
 
 $(NAME):$(addprefix $(OBJS_DIR)/, $(OBJS)) | LIBFT
 	@$(CC) $(addprefix $(OBJS_DIR)/, $(OBJS)) -o $(NAME) $(LDFLAGS)
@@ -66,6 +71,13 @@ $(OBJS_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(@D)
 	@$(CC) $(INCLUDE) -c $< -o $@
 
+tag: $(TAGS_FILE) 
+
+$(TAGS_FILE): $(CTAGS_FILE)
+	@ctags -R -f $(TAGS_FILE) src inc libft/src
+	@echo "$(CYAN)[CTAGS] Tags file updated!$(DF)"
+
+
 clean:
 	@make $(NOPRINTMAKE) -C $(LIBFT_PATH) clean
 	@rm -rf $(OBJS_DIR)
@@ -73,6 +85,7 @@ clean:
 
 fclean: clean
 	@make $(NOPRINTMAKE) -C $(LIBFT_PATH) fclean
+	@rm -f $(TAGS_FILE)
 	@rm -rf $(NAME)
 	@echo "$(CYAN)[PUSH_SWAP] $(NAME) Removed$(DF)"
 	@echo "$(MAGENTA)========Project Reset Ready========$(DF)"

@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:24:23 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/21 12:39:44 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/27 10:04:44 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -23,12 +23,15 @@ void	free_arr(char **arr)
 {
 	int	i;
 
-	if (!arr)
+	if (!arr || *arr == NULL)
 		return ;
 	i = -1;
-	while (arr[++i] != NULL)
+	while (arr[i] != NULL)
+	{
 		free(arr[i]);
-	free(arr);
+		i++;
+	}
+	free(arr - 1);
 }
 
 int	error_syntax(char *nbr)

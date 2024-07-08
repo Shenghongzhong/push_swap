@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   config_nodes.c                                     :+:      :+:    :+:   */
+/*   cfg_nodes.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:59:04 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/21 17:25:50 by szhong           ###   ########.fr       */
+/*   Updated: 2024/07/08 15:12:36 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -30,14 +30,11 @@ void	set_indice(t_stack_node *a)
 	i = 0;
 	if (a == NULL)
 		return ;
-	if (ps_dblst_size(a) % 2 != 0)
-		median = (ps_dblst_size(a) + 1) / 2;
-	else 
-		median = ps_dblst_size(a) / 2;
+	median = ps_dblst_size(a) / 2;
 	while (a)
 	{
 		a->idx = i;
-		if (i < median)
+		if (i <= median)
 			a->before_median = true;
 		else
 			a->before_median = false;

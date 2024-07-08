@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 13:47:37 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/21 10:30:21 by szhong           ###   ########.fr       */
+/*   Updated: 2024/07/08 15:42:05 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -23,18 +23,19 @@ int	main(int argc, char *argv[])
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (-1);
 	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	dblst_stack_init(&a, argc, argv + 1, argc == 2);
+		argv = ps_split(argv[1], ' ');
+	dblst_stack_init(&a, argv + 1, argc == 2);
 	if (!is_sorted(a))
 	{
-		if (argc - 1 < 4)
+		if (ps_dblst_size(a) < 4)
 			sort_tiny(&a);
-		else if (argc - 1 < 6)
+		else if (ps_dblst_size(a) > 3 && ps_dblst_size(a) < 6)
 			sort_small(&a, &b);
 		else
 			sort_big(&a, &b);
 	}
 	deallocate(&a);
-	deallocate(&b);
+	if (b != NULL)
+		deallocate(&b);
 	return (0);
 }

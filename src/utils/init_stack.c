@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 09:54:39 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/21 16:03:48 by szhong           ###   ########.fr       */
+/*   Updated: 2024/07/08 19:07:59 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -42,7 +42,7 @@ static long	ft_atol(const char *str)
 	return (num * sign);
 }
 
-void	dblst_stack_init(t_stack_node **a, int size, char *argv[], \
+void	dblst_stack_init(t_stack_node **a, char *argv[], \
 		bool is_argc_2)
 {
 	t_stack_node	*tmp;
@@ -65,7 +65,7 @@ void	dblst_stack_init(t_stack_node **a, int size, char *argv[], \
 	}
 	if (is_argc_2)
 		free_arr(argv);
-	rank_stack(a, size - 1);
+	rank_stack(a, ps_dblst_size(*a));
 }
 
 t_stack_node	*tail_node(t_stack_node	*stack)

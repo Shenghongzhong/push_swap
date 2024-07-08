@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:59:04 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/21 18:15:30 by szhong           ###   ########.fr       */
+/*   Updated: 2024/07/08 15:40:01 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -33,10 +33,23 @@ t_stack_node	*search_smallest(t_stack_node *stack)
 	return (smallest_node);
 }
 
-void	sort_big(t_stack_node **a, t_stack_node **b)
+static void	refresh_order(t_stack_node **a)
 {
 	t_stack_node	*smallest;
-	int				size_a;
+
+	set_indice(*a);
+	smallest = search_smallest(*a);
+	if (smallest->before_median)
+		while (*a != smallest && !is_sorted(*a))
+			rarb(a, "ra");
+	else
+		while (*a != smallest && !is_sorted(*a))
+			rrota_ab(a, "rra");
+}
+
+void	sort_big(t_stack_node **a, t_stack_node **b)
+{
+	int	size_a;
 
 	size_a = ps_dblst_size(*a);
 	while (size_a-- > 3)
@@ -47,12 +60,5 @@ void	sort_big(t_stack_node **a, t_stack_node **b)
 		config_nodes(*a, *b);
 		push_swap_nodes(a, b);
 	}
-	set_indice(*a);
-	smallest = search_smallest(*a);
-	if (smallest->before_median)
-		while (*a != smallest)
-			rarb(a, "ra");
-	else
-		while (*a != smallest)
-			rrota_ab(a, "rra");
+	refresh_order(a);
 }

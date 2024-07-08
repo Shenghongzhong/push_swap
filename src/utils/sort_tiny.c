@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 15:57:40 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/21 16:19:05 by szhong           ###   ########.fr       */
+/*   Updated: 2024/06/25 18:23:12 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -77,7 +77,9 @@ void	sort_tiny(t_stack_node **stack)
 {
 	if (!stack || !*stack)
 		return ;
-	if (ps_dblst_size(*stack) == 2)
+	if (ps_dblst_size(*stack) == 1)
+		return ;
+	else if (ps_dblst_size(*stack) == 2)
 		sort_two(stack);
 	else if (ps_dblst_size(*stack) == 3)
 		sort_three(stack);

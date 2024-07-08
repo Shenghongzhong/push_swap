@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:59:04 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/21 18:13:39 by szhong           ###   ########.fr       */
+/*   Updated: 2024/07/08 19:03:19 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -15,17 +15,15 @@
 
 static t_stack_node	*get_least(t_stack_node *stack)
 {
-	t_stack_node	*least_moves_node;
-
 	if (!stack)
 		return (NULL);
 	while (stack)
 	{
 		if (stack->least_moves)
-			least_moves_node = stack;
+			return (stack);
 		stack = stack->next;
 	}
-	return (least_moves_node);
+	return (NULL);
 }
 
 void	check_rotate_node(t_stack_node **stack, t_stack_node *top_node, \
@@ -50,6 +48,24 @@ void	check_rotate_node(t_stack_node **stack, t_stack_node *top_node, \
 	}
 }
 
+static void	rotate_both(t_stack_node **a, \
+		t_stack_node **b, t_stack_node *least_node)
+{
+	while (*a != least_node->target_node && *b != least_node)
+		rr(a, b);
+	set_indice(*a);
+	set_indice(*b);
+}
+
+static void	rev_rotate_both(t_stack_node **a, \
+		t_stack_node **b, t_stack_node *least_node)
+{
+	while (*a != (least_node->target_node) && *b != least_node)
+		rrr(a, b);
+	set_indice(*a);
+	set_indice(*b);
+}
+
 void	push_swap_nodes(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*node_least_moves;
@@ -57,21 +73,11 @@ void	push_swap_nodes(t_stack_node **a, t_stack_node **b)
 	node_least_moves = get_least(*b);
 	if (node_least_moves->before_median && \
 			node_least_moves->target_node->before_median)
-	{
-		while (*a != node_least_moves->target_node && \
-				*b != node_least_moves)
-			rr(a, b);
-	}
+		rotate_both(a, b, node_least_moves);
 	else if (!(node_least_moves->before_median) && \
 			!(node_least_moves->target_node->before_median))
-	{
-		while (*a != node_least_moves->target_node && \
-				*b != node_least_moves)
-			rrr(a, b);
-	}
-	set_indice(*a);
-	set_indice(*b);
-	check_rotate_node(a, node_least_moves->target_node, 'a');
+		rev_rotate_both(a, b, node_least_moves);
 	check_rotate_node(b, node_least_moves, 'b');
+	check_rotate_node(a, node_least_moves->target_node, 'a');
 	papb(b, a, "pa");
 }
