@@ -6,7 +6,7 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:52:20 by szhong            #+#    #+#             */
-/*   Updated: 2024/06/21 19:19:09 by szhong           ###   ########.fr       */
+/*   Updated: 2024/07/08 18:43:06 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -40,8 +40,8 @@ void			dblst_rota(t_stack_node **stack);
 void			dblst_push(t_stack_node **a, t_stack_node **b);
 void			dblst_rrota(t_stack_node **stack);	
 void			deallocate(t_stack_node **stack);
-void			dblst_stack_init(t_stack_node **a, int size, \
-		char *argv[], bool is_argc_2);
+void			dblst_stack_init(t_stack_node **a, char *argv[], \
+		bool is_argc_2);
 // push_swap operations
 void			papb(t_stack_node **src, t_stack_node **dst, char *papb);
 void			sasb(t_stack_node **stack, char *sasb);
@@ -50,8 +50,10 @@ void			ss(t_stack_node **a, t_stack_node **b);
 void			rr(t_stack_node **a, t_stack_node **b);
 void			rrota_ab(t_stack_node **stack, char *rrab);
 void			rrr(t_stack_node **a, t_stack_node **b);
+void			back_to_head(t_stack_node **stack);
 // helper function
 bool			is_sorted(t_stack_node *a);
+char			**ps_split(char const *s, char c);
 // sorting 2 or 3
 void			sort_tiny(t_stack_node **stack);
 void			sort_two(t_stack_node **stack);

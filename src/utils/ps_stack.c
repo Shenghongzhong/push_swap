@@ -6,11 +6,12 @@
 /*   By: szhong <szhong@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 11:48:00 by szhong            #+#    #+#             */
-/*   Updated: 2024/07/08 15:26:12 by szhong           ###   ########.fr       */
+/*   Updated: 2024/07/26 13:57:32 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 #include <stdlib.h>
+#include <stdbool.h>
 
 /**
  * @breif Create and Initialise a new node for an intger.
@@ -31,6 +32,7 @@ t_stack_node	*ps_dblst_new(int data)
 	db_lst->next = NULL;
 	db_lst->prev = NULL;
 	db_lst->rank = -1;
+	db_lst->least_moves = false;
 	return (db_lst);
 }
 
